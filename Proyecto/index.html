@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sistema en Riesgo</title>
+     <link rel="icon" type="image/png" sizes="256x256" href="Icono.png">
+    
+    <link rel="stylesheet" href="estilos.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="topbar">
+    <div class="status">
+        <span class="led"></span> SISTEMA EN ALERTA
+    </div>
+</header>
+
+    <main>
+
+        <!-- Pantalla de inicio -->
+        <section id="inicio" class="pantalla activa">
+            <div class="contenido-inicio">
+
+                <div class="icono-principal">⚠</div>
+
+                 <h1>SISTEMA<br><span>EN RIESGO</span></h1>
+
+                <p class="descripcion">
+                    Algo salió mal y el sistema dejó de funcionar.
+
+                    Tu misión es superar los retos para recuperar los 
+                    archivos y dejar el sistema como nuevo.
+                </p>
+
+                <button class="boton principal" onclick="mostrarHistoria()">
+                    COMENZAR
+                </button>
+
+                <div class="decoracion">
+                    <span>SERVIDOR 01</span>
+                    <span>SERVIDOR 02</span>
+                    <span>SERVIDOR 03</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Historia del juego -->
+        <section id="historia" class="pantalla">
+            <div class="panel">
+
+                <p class="subtitulo">TENEMOS UN PROBLEMA</p>
+
+                <h2>FALLA DETECTADA</h2>
+
+                <div class="icono-alerta">⚠</div>
+
+                <p>
+                    Se cayó el sistema!
+                    
+                    Los servidores dejaron de funcionar y hay información en riesgo.
+                </p>
+
+                <p>
+                   Para rescatarla, tendrás que superar cuatro retos y dejar todo funcionando.
+                </p>
+
+                <p class="objetivo">
+                    TU MISIÓN: RESOLVER LOS RETOS Y LOGRAR QUE EL SISTEMA VUELVA A FUNCIONAR.
+                </p>
+
+                <button class="boton principal" onclick="iniciarJuego()">
+                    COMENZAR LOS RETOS
+                </button>
+
+            </div>
+        </section>
+
+
+        <!-- Pantalla de los desafíos -->
+        <section id="juego" class="pantalla">
+            <div class="panel-juego">
+
+                <div class="encabezado-juego">
+
+                    <div>
+                        <p class="subtitulo">VAMOS CON EL SIGUIENTE RETO</p>
+                        <h2 id="nombreMision">MISIÓN 01</h2>
+                    </div>
+
+                    <div class="puntuacion">
+                        <span>TUS PUNTOS</span>
+                        <strong id="puntos">0</strong>
+                    </div>
+
+                </div>
+
+                <div class="barra-fondo">
+                    <div id="progreso" class="barra-progreso"></div>
+                </div>
+
+                <p id="contador" class="contador">DESAFÍO 1 DE 4</p>
+
+                <div class="panel-desafio">
+
+                    <div class="icono-desafio" id="iconoDesafio">▦</div>
+
+                    <h3 id="tituloDesafio">Acceso a la sala de servidores</h3>
+
+                    <p id="pregunta"></p>
+
+                    <div class="formula" id="formula"></div>
+
+                    <input
+                        type="number"
+                        id="respuesta"
+                        placeholder="Escribe tu respuesta..."
+                        autocomplete="off"
+                    >
+
+                    <button class="boton principal" onclick="comprobarRespuesta()">
+                        COMPROBAR
+                    </button>
+
+                    <button class="boton secundario" onclick="mostrarPista()">
+                        PISTA
+                    </button>
+
+                    <div id="mensaje" class="mensaje"></div>
+
+                    <div id="pista" class="pista"></div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Pantalla final -->
+        <section id="final" class="pantalla">
+            <div class="panel final-panel">
+
+                <div class="icono-final">✓</div>
+
+                <p class="subtitulo">¡MISIÓN COMPLETADA!</p>
+
+                <h2>SISTEMA PRINCIPAL RESTAURADO</h2>
+
+                <p>
+                   ¡Lo lograste! Superaste los 4 retos y salvaste el sistema. 
+                    Todo está en línea y la información segura.
+                </p>
+
+                <div class="resultado">
+                    <span>TU PUNTUACIÓN FINAL</span>
+                    <strong id="resultadoFinal">400</strong>
+                    <small>DE 400 PUNTOS</small>
+                </div>
+
+                <p class="mensaje-final">
+                    ¡Misión cumplida! El sistema está de vuelta.
+                </p>
+
+                <button class="boton principal" onclick="reiniciarJuego()">
+                    JUGAR DE NUEVO
+                </button>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p> PROYECTO DE RAZONAMIENTO CUANTITATIVO | Paula Sánchez, Danna Tapiero, Brigitte Rodriguez, Juan Caper </p>
+    </footer>
+
+    <script src="juego.js"></script>
+
+</body>
+</html>

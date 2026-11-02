@@ -1,0 +1,409 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at 50% 40%, #102b4a, #071322 50%, #030811);
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(0,220,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,220,255,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.topbar {
+    height: 70px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-align: left;
+    border-bottom: 1px solid rgba(0,220,255,0.2);
+    background: rgba(3,12,25,0.85);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    color: #00e5ff;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.status {
+    font-size: 11px;
+    color: #ff6868;
+    letter-spacing: 1px;
+}
+
+.led {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #ff4545;
+    border-radius: 50%;
+    margin-right: 7px;
+    box-shadow: 0 0 10px #ff4545;
+}
+
+main {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.pantalla {
+    display: none;
+    width: 100%;
+    max-width: 850px;
+    animation: aparecer 0.6s ease;
+}
+
+.pantalla.activa {
+    display: block;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.contenido-inicio {
+    text-align: center;
+}
+
+.icono-principal {
+    font-size: 65px;
+    color: #00e5ff;
+    text-shadow: 0 0 25px #00cfff;
+    margin-bottom: 20px;
+}
+
+.subtitulo {
+    color: #00e5ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin-bottom: 18px;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(35px, 7vw, 65px);
+    line-height: 1.2;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: #00e5ff;
+    text-shadow: 0 0 20px rgba(0,229,255,0.5);
+}
+
+.descripcion {
+    max-width: 590px;
+    margin: 0 auto 35px;
+    color: #b9c9dc;
+    line-height: 1.8;
+}
+
+.boton {
+    padding: 15px 25px;
+    border-radius: 6px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin: 8px;
+}
+
+.principal {
+    background: #00d9f5;
+    color: #03111e;
+    border: 1px solid #00e5ff;
+    box-shadow: 0 0 20px rgba(0,217,245,0.2);
+}
+
+.principal:hover {
+    background: #ffffff;
+    box-shadow: 0 0 25px #00d9f5;
+    transform: translateY(-3px);
+}
+
+.secundario {
+    background: transparent;
+    color: #00e5ff;
+    border: 1px solid #00e5ff;
+}
+
+.secundario:hover {
+    background: rgba(0,229,255,0.12);
+}
+
+.decoracion {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    margin-top: 65px;
+    color: #53718d;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.panel {
+    background: rgba(9,26,45,0.92);
+    border: 1px solid rgba(0,229,255,0.35);
+    border-radius: 14px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+}
+
+.panel h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(22px, 4vw, 32px);
+    margin-bottom: 25px;
+}
+
+.panel p {
+    color: #b9c9dc;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.icono-alerta {
+    color: #ffb347;
+    font-size: 55px;
+    margin-bottom: 20px;
+}
+
+.objetivo {
+    color: #00e5ff !important;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 30px 0 !important;
+}
+
+.panel-juego {
+    background: rgba(9,26,45,0.94);
+    border: 1px solid rgba(0,229,255,0.35);
+    padding: 35px;
+    border-radius: 14px;
+}
+
+.encabezado-juego {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.encabezado-juego h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 22px;
+}
+
+.puntuacion {
+    text-align: right;
+}
+
+.puntuacion span {
+    display: block;
+    color: #8ca7bf;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.puntuacion strong {
+    color: #00e5ff;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 25px;
+}
+
+.barra-fondo {
+    height: 8px;
+    background: #172d43;
+    border-radius: 20px;
+    margin: 25px 0 12px;
+    overflow: hidden;
+}
+
+.barra-progreso {
+    height: 100%;
+    width: 0%;
+    background: #00e5ff;
+    box-shadow: 0 0 12px #00e5ff;
+    transition: width 0.5s;
+}
+
+.contador {
+    text-align: right;
+    color: #819ab2;
+    font-size: 11px;
+    margin-bottom: 25px;
+}
+
+.panel-desafio {
+    text-align: center;
+    padding: 30px 20px;
+    border-radius: 10px;
+    background: rgba(2,12,25,0.7);
+    border: 1px solid rgba(0,229,255,0.15);
+}
+
+.icono-desafio {
+    font-size: 45px;
+    color: #00e5ff;
+    margin-bottom: 15px;
+}
+
+.panel-desafio h3 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 19px;
+    margin-bottom: 20px;
+}
+
+.panel-desafio p {
+    color: #b9c9dc;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+input {
+    display: block;
+    width: 100%;
+    max-width: 350px;
+    margin: 15px auto;
+    padding: 15px;
+    background: #071827;
+    border: 1px solid #31536f;
+    border-radius: 6px;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    outline: none;
+}
+
+input:focus {
+    border-color: #00e5ff;
+    box-shadow: 0 0 10px rgba(0,229,255,0.2);
+}
+
+.mensaje {
+    min-height: 25px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.correcto {
+    color: #43e69b;
+}
+
+.incorrecto {
+    color: #ff7777;
+}
+
+.pista {
+    color: #ffcc66;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.final-panel {
+    border-color: #43e69b;
+}
+
+.icono-final {
+    font-size: 65px;
+    color: #43e69b;
+    text-shadow: 0 0 20px #43e69b;
+    margin-bottom: 20px;
+}
+
+.resultado {
+    margin: 30px auto;
+    padding: 25px;
+    max-width: 280px;
+    background: rgba(0,229,255,0.08);
+    border: 1px solid rgba(0,229,255,0.3);
+    border-radius: 10px;
+}
+
+.resultado span,
+.resultado small {
+    display: block;
+    color: #8ca7bf;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.resultado strong {
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 45px;
+    color: #00e5ff;
+    margin: 10px 0;
+}
+
+.mensaje-final {
+    color: #43e69b !important;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #56728c;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .status {
+        font-size: 10px;
+    }
+
+    .panel,
+    .panel-juego {
+        padding: 22px 15px;
+    }
+
+    .decoracion {
+        gap: 12px;
+        font-size: 8px;
+    }
+
+    .encabezado-juego h2 {
+        font-size: 16px;
+    }
+}
